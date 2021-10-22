@@ -1,0 +1,143 @@
+cabal-version:       2.0
+name:                lobemo-examples
+version:             0.1.0.0
+synopsis:            examples of logging, benchmarking, and monitoring
+-- description:
+homepage:            https://github.com/The-Blockchain-Company/tbco-monitoring-framework
+-- bug-reports:
+license:             Apache-2.0
+license-file:        LICENSE
+author:              Alexander Diemand
+maintainer:          operations@tbco.io
+copyright:           2021 The-Blockchain-Company
+category:            Benchmarking
+build-type:          Simple
+extra-source-files:
+
+executable example-simple
+  main-is:             Main.lhs
+  -- other-modules:
+  default-extensions:  OverloadedStrings
+  other-extensions:    CPP, FlexibleInstances, MultiParamTypeClasses, ScopedTypeVariables
+  ghc-options:         -threaded -Wall -Werror -O2 "-with-rtsopts=-T"
+  hs-source-dirs:      simple
+  default-language:    Haskell2010
+  build-depends:       base,
+                       aeson,
+                       tbco-monitoring,
+                       lobemo-backend-editor,
+                       lobemo-scribe-systemd,
+                       async,
+                       bytestring,
+                       mtl
+  if os(windows)
+     build-depends:    Win32
+  else
+     build-depends:    unix
+
+executable example-counters
+  main-is:             Main.lhs
+  -- other-modules:
+  default-extensions:  OverloadedStrings
+  other-extensions:    CPP, FlexibleInstances, MultiParamTypeClasses, ScopedTypeVariables
+  ghc-options:         -threaded -Wall -Werror -O2 "-with-rtsopts=-T"
+  hs-source-dirs:      counters
+  default-language:    Haskell2010
+  build-depends:       base,
+                       aeson,
+                       tbco-monitoring,
+                       async,
+                       bytestring,
+                       mtl
+  if os(windows)
+     build-depends:    Win32
+  else
+     build-depends:    unix
+
+executable example-stats
+  main-is:             Main.lhs
+  -- other-modules:
+  default-extensions:  OverloadedStrings
+  ghc-options:         -threaded -Wall -Werror -O2 "-with-rtsopts=-T"
+  hs-source-dirs:      stats
+  default-language:    Haskell2010
+  build-depends:       base,
+                       aeson,
+                       tbco-monitoring,
+                       async,
+                       bytestring,
+                       mtl,
+                       text
+  if os(windows)
+     build-depends:    Win32
+  else
+     build-depends:    unix
+
+executable example-complex
+  hs-source-dirs:      complex
+  main-is:             Main.lhs
+  default-language:    Haskell2010
+  default-extensions:  OverloadedStrings
+  ghc-options:         -threaded -Wall -O2 -rtsopts "-with-rtsopts=-T"
+  cpp-options:         -DENABLE_OBSERVABLES
+  other-modules:
+  build-depends:       aeson,
+                       base,
+                       tbco-monitoring,
+                       lobemo-backend-aggregation,
+                       lobemo-backend-editor,
+                       lobemo-backend-ekg,
+                       lobemo-backend-monitoring,
+                       lobemo-backend-trace-forwarder,
+                       lobemo-scribe-systemd,
+                       async,
+                       bytestring,
+                       mtl,
+                       random,
+                       text,
+                       tracer-transformers,
+                       unordered-containers
+  if os(windows)
+     build-depends:    Win32
+  else
+     build-depends:    unix
+
+  if os(linux)
+     build-depends:    download
+
+
+executable example-performance
+  hs-source-dirs:      performance
+  main-is:             Main.lhs
+  default-language:    Haskell2010
+  default-extensions:  OverloadedStrings
+  ghc-options:         -threaded -Wall -Werror -O2 "-with-rtsopts=-T"
+  other-modules:
+  build-depends:       base,
+                       tbco-monitoring,
+                       async,
+                       criterion,
+                       text,
+                       unordered-containers
+
+executable example-acceptor
+  hs-source-dirs:      acceptor
+  main-is:             Main.hs
+  default-language:    Haskell2010
+  ghc-options:         -threaded
+                       -Wall -Werror
+                       -rtsopts
+                       "-with-rtsopts=-T"
+                       -fno-warn-unticked-promoted-constructors
+
+  build-depends:       base
+                     , contra-tracer
+                     , tbco-monitoring
+                     , lobemo-backend-trace-acceptor
+
+                     , bytestring
+                     , iproute
+                     , network
+                     , optparse-applicative
+                     , serialise
+                     , text

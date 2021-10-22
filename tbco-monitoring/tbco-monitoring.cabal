@@ -1,0 +1,198 @@
+name:                 tbco-monitoring
+version:              0.1.10.1
+synopsis:             logging, benchmarking and monitoring framework
+-- description:
+license:              Apache-2.0
+license-files:        LICENSE, NOTICE
+author:               Alexander Diemand, Andreas Triantafyllos
+maintainer:           operations@tbco.io
+copyright:            2018 GodXCoin
+category:             Benchmarking
+build-type:           Simple
+extra-source-files:   README.md
+                      src/Bcc/BM/Counters/os-support-darwin.h
+                      src/Bcc/BM/Counters/os-support-win.h
+
+cabal-version:        >=1.10
+
+flag disable-observables
+  description:         Turn off observables, observers.
+  default:             False
+  manual:              True
+
+flag performance-test-queue
+  description:         Set the huge size for backends' queues.
+  default:             False
+  manual:              True
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Paths_tbco_monitoring
+
+                       Bcc.BM.Configuration
+                       Bcc.BM.Configuration.Model
+                       Bcc.BM.Configuration.Static
+
+                       Bcc.BM.Counters
+                       Bcc.BM.Counters.Common
+                       Bcc.BM.Counters.Dummy
+
+                       Bcc.BM.Stats
+                       Bcc.BM.Stats.Resources
+
+                       Bcc.BM.Data.Aggregated
+                       Bcc.BM.Data.AggregatedKind
+                       Bcc.BM.Data.Backend
+                       Bcc.BM.Data.BackendKind
+                       Bcc.BM.Data.Configuration
+                       Bcc.BM.Data.Counter
+                       Bcc.BM.Data.LogItem
+                       Bcc.BM.Data.MonitoringEval
+                       Bcc.BM.Data.Observable
+                       Bcc.BM.Data.Output
+                       Bcc.BM.Data.Rotation
+                       Bcc.BM.Data.Severity
+                       Bcc.BM.Data.SubTrace
+                       Bcc.BM.Data.Trace
+                       Bcc.BM.Data.Tracer
+                       Bcc.BM.Data.Transformers
+                       Bcc.BM.Internal.ElidingTracer
+                       Bcc.BM.Tracing
+
+                       Bcc.BM.Backend.Log
+                       Bcc.BM.Backend.LogBuffer
+                       Bcc.BM.Backend.ProcessQueue
+                       Bcc.BM.Backend.Switchboard
+                       Bcc.BM.Plugin
+                       Bcc.BM.Rotator
+                       Bcc.BM.Setup
+                       Bcc.BM.Trace
+                       Bcc.BM.Tracer
+
+                       -- shamelessly stolen from shardagnostic-network-framework
+                       Bcc.BM.IOManager
+                       Bcc.BM.Snocket
+
+  if !flag(disable-observables)
+    exposed-modules:   Bcc.BM.Observer.Monadic
+                       Bcc.BM.Observer.STM
+
+  if os(linux)
+    exposed-modules:   Bcc.BM.Counters.Linux
+  if os(windows)
+    exposed-modules:   Bcc.BM.Counters.Windows
+    c-sources:         src/Bcc/BM/Counters/os-support-win.c
+    include-dirs:      src/Bcc/BM/Counters/
+    cc-options:        -DPSAPI_VERSION=2
+  if os(darwin)
+    exposed-modules:   Bcc.BM.Counters.Darwin
+    c-sources:         src/Bcc/BM/Counters/os-support-darwin.c
+    include-dirs:      src/Bcc/BM/Counters/
+
+  other-modules:
+
+  default-language:    Haskell2010
+  default-extensions:  OverloadedStrings
+  other-extensions:    OverloadedStrings
+  build-depends:       base >= 4.11,
+                       contra-tracer,
+                       aeson >= 1.4.2,
+                       array,
+                       async,
+                       async-timer,
+                       attoparsec,
+                       auto-update,
+                       base64-bytestring,
+                       bytestring,
+                       clock,
+                       containers,
+                       contravariant,
+                       directory,
+                       filepath,
+                       ekg,
+                       katip,
+                       mtl,
+                       network,
+                       safe,
+                       safe-exceptions,
+                       scientific,
+                       stm,
+                       template-haskell,
+                       text,
+                       time,
+                       time-units,
+                       tracer-transformers,
+                       transformers,
+                       unordered-containers,
+                       vector,
+                       Win32-network,
+                       yaml, libyaml
+
+  if os(windows)
+     build-depends:    Win32
+  else
+     build-depends:    unix
+
+  if !flag(disable-observables)
+    cpp-options:       -DENABLE_OBSERVABLES
+
+  if flag(performance-test-queue)
+    cpp-options:       -DPERFORMANCE_TEST_QUEUE
+
+  ghc-options:         -Wall -Werror
+                       -fno-ignore-asserts
+
+test-suite tests
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Test.lhs
+  other-modules:       Bcc.BM.Test.Trace
+                       Bcc.BM.Test.STM
+                       Bcc.BM.Test.Configuration
+                       Bcc.BM.Test.LogItem
+                       Bcc.BM.Test.Mock
+                       Bcc.BM.Test.Rotator
+                       Bcc.BM.Test.Routing
+                       Bcc.BM.Test.Structured
+                       Bcc.BM.Test.Tracer
+                       Bcc.BM.Test.Aggregated
+                       Bcc.BM.Arbitrary
+                       Bcc.BM.Arbitrary.Aggregated
+
+  default-language:    Haskell2010
+  default-extensions:  OverloadedStrings
+  build-depends:       base,
+                       contra-tracer,
+                       tbco-monitoring,
+                       aeson >= 1.4.2,
+                       array,
+                       async,
+                       bytestring,
+                       clock,
+                       containers,
+                       directory,
+                       filepath,
+                       mtl,
+                       process,
+                       QuickCheck,
+                       random,
+                       semigroups,
+                       split,
+                       stm,
+                       tasty,
+                       tasty-hunit,
+                       tasty-quickcheck,
+                       temporary,
+                       text,
+                       time,
+                       time-units,
+                       tracer-transformers,
+                       transformers,
+                       unordered-containers,
+                       vector,
+                       void,
+                       yaml, libyaml
+  ghc-options:         -Wall -threaded -rtsopts "-with-rtsopts=-T"
+
+  if !flag(disable-observables)
+    cpp-options:       -DENABLE_OBSERVABLES

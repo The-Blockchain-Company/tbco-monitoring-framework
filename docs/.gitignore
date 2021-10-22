@@ -1,0 +1,15 @@
+*.fls
+*.log
+*.toc
+*.idx
+*.ilg
+*.ind
+SetupProcedure.pdf
+OverviewModules.pdf
+ConfigurationModel.pdf
+ConfigEditor.pdf
+GodXCoin-*.tex
+*.out
+*.ptb
+*.fdb_latexmk
+

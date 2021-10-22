@@ -1,0 +1,25 @@
+window_sizes 1727 855 313 1408 739 64
+cleanlooks_style
+diagrams
+  active  classdiagram_ref 128021 // Overview_Classes
+    985 747 100 A4-Landscape 115 0
+end
+show_stereotypes
+selected class_ref 129941 // TraceContext
+open
+  activity_ref 128021 // Concurrent_Trace
+  classview_ref 128277 // Counters
+  class_ref 128277 // BaseTrace
+  classview_ref 128149 // Configuration
+  classview_ref 134805 // EKG
+  classview_ref 134933 // TeeTrace
+  component_ref 128277 // LoggingSetup
+  component_ref 128149 // LoggingConfiguration
+  classview_ref 141717 // Output Classes
+  class_ref 191765 // ScribeId
+  classview_ref 148373 // Configuration Classes
+  
+  package_ref 148245 // Trace
+  classview_ref 161429 // Katip classes
+end
+end

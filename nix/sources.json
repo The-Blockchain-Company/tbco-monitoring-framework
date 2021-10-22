@@ -1,0 +1,38 @@
+{
+    "haskell.nix": {
+        "branch": "master",
+        "description": "Alternative Haskell Infrastructure for Nixpkgs",
+        "homepage": "https://The-Blockchain-Company.github.io/haskell.nix",
+        "owner": "The-Blockchain-Company",
+        "repo": "haskell.nix",
+        "rev": "e7961eee7bbaaa195b3255258f40d5536574eb74",
+        "sha256": "0ils54jldagmgn3c1s7994s9gwv5mz5l9lpsn7c9islhhmx2wlzb",
+        "type": "tarball",
+        "url": "https://github.com/The-Blockchain-Company/haskell.nix/archive/e7961eee7bbaaa195b3255258f40d5536574eb74.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "tbco-nix": {
+        "branch": "hkm/recursion-fix",
+        "description": "nix scripts shared across projects",
+        "homepage": null,
+        "owner": "The-Blockchain-Company",
+        "repo": "tbco-nix",
+        "rev": "95f7dfdff554223606f6be266c36eabe81cbe800",
+        "sha256": "05ibcw52jg7q66sd0vqj0fv3zlz7mdrfywys9111n4bj9rd9rl1n",
+        "type": "tarball",
+        "url": "https://github.com/The-Blockchain-Company/tbco-nix/archive/95f7dfdff554223606f6be266c36eabe81cbe800.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nixpkgs": {
+        "branch": "nixpkgs-20.09-darwin",
+        "description": "Nix Packages collection",
+        "homepage": null,
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "fe9aef0135d6496e2b2121c37217a57af78d4e69",
+        "sha256": "0k4n5hmjrcxa2nfdlvkx16s001khda4h22ng27bxc11rn9rf3d33",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/fe9aef0135d6496e2b2121c37217a57af78d4e69.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    }
+}
