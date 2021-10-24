@@ -10,7 +10,7 @@
 
 .. footer::
 
-  GodXCoin - logging, benchmarking, monitoring @ https://github.com/The-Blockchain-Company/tbco-monitoring-framework
+  The Blockchain Co. - logging, benchmarking, monitoring @ https://github.com/The-Blockchain-Company/tbco-monitoring-framework
 
 
 WIP logging, benchmarking and monitoring

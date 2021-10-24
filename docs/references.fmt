@@ -2,7 +2,7 @@
 % references.fmt
 
 % remake with this 'sed' command
-% sed -ne 's/.*label{code:\([^}]*\)}.*/%format \1 = "\\hyperref[code:\1]{\1}"/p' GodXCoin-Monitoring.tex
+% sed -ne 's/.*label{code:\([^}]*\)}.*/%format \1 = "\\hyperref[code:\1]{\1}"/p' The Blockchain Co.-Monitoring.tex
 
 %if style /= newcode
 

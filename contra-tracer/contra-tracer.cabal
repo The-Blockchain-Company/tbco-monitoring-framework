@@ -5,7 +5,7 @@ synopsis:            A simple interface for logging, tracing or monitoring.
 license:             Apache-2.0
 license-files:       LICENSE, NOTICE
 author:              Robert Mourey Jr
-maintainer:          GodX@bcc-coin.org
+maintainer:          The Blockchain Co.  - Robert Mourey Jr.org
 copyright:           2021 The-Blockchain-Company
 category:            Logging
 build-type:          Simple

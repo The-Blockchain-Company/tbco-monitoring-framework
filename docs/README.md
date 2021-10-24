@@ -3,7 +3,7 @@
 
 In the `docs/` directory, enter a `nix-shell` to have access to the required tools
 to generate documentation. Then, simply run `make`. This will produce the
-[GodXCoin-Monitoring.pdf](https://github.com/The-Blockchain-Company/tbco-monitoring-framework/wiki/GodXCoin-Monitoring.pdf) from the source code.
+[The Blockchain Co.-Monitoring.pdf](https://github.com/The-Blockchain-Company/tbco-monitoring-framework/wiki/The Blockchain Co.-Monitoring.pdf) from the source code.
 
 # One-pagers
 

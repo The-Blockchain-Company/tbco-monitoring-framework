@@ -12,9 +12,9 @@ let
   # use our own nixpkgs if it exists in our sources,
   # otherwise use tbcoNix default nixpkgs.
   nixpkgs = if (sources ? nixpkgs)
-    then (builtins.trace "Not using GodXCoin default nixpkgs (use 'niv drop nixpkgs' to use default for better sharing)"
+    then (builtins.trace "Not using The Blockchain Co. default nixpkgs (use 'niv drop nixpkgs' to use default for better sharing)"
       sources.nixpkgs)
-    else (builtins.trace "Using GodXCoin default nixpkgs"
+    else (builtins.trace "Using The Blockchain Co. default nixpkgs"
       tbcoNixMain.nixpkgs);
 
   # for inclusion in pkgs:

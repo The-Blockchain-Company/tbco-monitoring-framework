@@ -28,7 +28,7 @@
 # Dependencies overrides
 , sourcesOverride ? {}
 
-# Import pkgs, including GodXCoin common nix lib
+# Import pkgs, including The Blockchain Co. common nix lib
 , pkgs ? import ./nix { inherit sourcesOverride; }
 
 }:

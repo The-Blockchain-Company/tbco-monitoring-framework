@@ -38,7 +38,7 @@ buildStep = do
 coverageUploadStep :: IO ()
 coverageUploadStep = do
   echo "--- Uploading Coverage Information"
-  need "GodXCoin_MONITORING_FRAMEWORK_COVERALLS_REPO_TOKEN" >>= \case
+  need "The Blockchain Co._MONITORING_FRAMEWORK_COVERALLS_REPO_TOKEN" >>= \case
     Nothing -> printf
       "Missing coverall repo token. Not uploading coverage information.\n"
     Just repoToken -> do

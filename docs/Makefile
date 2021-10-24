@@ -1,4 +1,4 @@
-DOC = GodXCoin-Monitoring
+DOC = The Blockchain Co.-Monitoring
 
 SRCDIR1 = ../tbco-monitoring/src
 SRCDIR2 = ../contra-tracer/src

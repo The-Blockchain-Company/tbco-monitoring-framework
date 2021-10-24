@@ -6,7 +6,7 @@ license:              Apache-2.0
 license-files:        LICENSE, NOTICE
 author:               Alexander Diemand, Andreas Triantafyllos
 maintainer:           operations@tbco.io
-copyright:            2018 GodXCoin
+copyright:            2018 The Blockchain Co.
 category:             Benchmarking
 build-type:           Simple
 extra-source-files:   README.md

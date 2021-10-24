@@ -7,7 +7,7 @@ This framework provides logging, benchmarking and monitoring.
 
 ## documentation
 
-Documentation of the [source code and tests](docs/GodXCoin-Monitoring.pdf) in PDF format. Please, download the PDF file and open in external viewer. It contains links that make it easy to navigate in the source code. Those links are not active in the online viewer.
+Documentation of the [source code and tests](docs/The Blockchain Co.-Monitoring.pdf) in PDF format. Please, download the PDF file and open in external viewer. It contains links that make it easy to navigate in the source code. Those links are not active in the online viewer.
 
 Presentations and more documentation is available from our [docs](https://The-Blockchain-Company.github.io/tbco-monitoring-framework/) section.
 
