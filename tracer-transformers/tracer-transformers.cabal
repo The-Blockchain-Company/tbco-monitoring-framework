@@ -7,7 +7,7 @@ synopsis:            tracer transformers and examples showing their use
 license:             Apache-2.0
 license-files:       LICENSE, NOTICE
 author:              Neil Davies, Alexander Diemand, Andreas Triantafyllos
-maintainer:          operations@tbco.io
+maintainer:          operations@blockchain-company.io
 copyright:           2021 The-Blockchain-Company
 category:            Logging
 build-type:          Simple

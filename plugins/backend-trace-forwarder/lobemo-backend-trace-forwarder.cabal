@@ -8,7 +8,7 @@ homepage:            https://github.com/The-Blockchain-Company/tbco-monitoring-f
 license:             Apache-2.0
 license-files:       LICENSE, NOTICE
 author:              Alexander Diemand
-maintainer:          operations@tbco.io
+maintainer:          operations@blockchain-company.io
 copyright:           2020 The Blockchain Co.
 category:            Benchmarking
 build-type:          Simple
