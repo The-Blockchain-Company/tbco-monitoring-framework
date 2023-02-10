@@ -59,7 +59,7 @@ readResourceStats = do
        , rCentiGC    = nsToCenti $ GhcStats.gc_cpu_ns rts
        , rCentiMut   = nsToCenti $ GhcStats.mutator_cpu_ns rts
        , rGcsMajor   = fromIntegral $ GhcStats.major_gcs rts
-       , rGcsMinor   = fromIntegral $ GhcStats.gcs rts - GhcStats.major_gcs rts
+       , rGcsSentry  = fromIntegral $ GhcStats.gcs rts - GhcStats.major_gcs rts
        , rAlloc      = GhcStats.allocated_bytes rts
        , rLive       = GhcStats.gcdetails_live_bytes $ GhcStats.gc rts
        , rHeap       = GhcStats.gcdetails_mem_in_use_bytes $ GhcStats.gc rts
@@ -240,7 +240,7 @@ readProcStatM pid = do
                      The session ID of the process.
 
        (7) tty_nr  %d
-                     The controlling terminal of the process.  (The minor device number is contained in the combi-
+                     The controlling terminal of the process.  (The Sentry device number is contained in the combi-
                      nation of bits 31 to 20 and 7 to 0; the major device number is in bits 15 to 8.)
 
        (8) tpgid  %d
@@ -252,12 +252,12 @@ readProcStatM pid = do
 
                      The format for this field was %lu before Linux 2.6.
 
-       (10) minflt  %lu
-                     The number of minor faults the process has made which have not required loading a memory page
+       (10) senflt  %lu
+                     The number of Sentry faults the process has made which have not required loading a memory page
                      from disk.
 
-       (11) cminflt  %lu
-                     The number of minor faults that the process's waited-for children have made.
+       (11) csenflt  %lu
+                     The number of Sentry faults that the process's waited-for children have made.
 
        (12) majflt  %lu
                      The  number  of  major  faults the process has made which have required loading a memory page

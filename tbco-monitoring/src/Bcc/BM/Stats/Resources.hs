@@ -24,7 +24,7 @@ data Resources a
       , rCentiGC    :: !a
       , rCentiMut   :: !a
       , rGcsMajor   :: !a
-      , rGcsMinor   :: !a
+      , rGcsSentry  :: !a
       , rAlloc      :: !a
       , rLive       :: !a
       , rHeap       :: !a
@@ -42,7 +42,7 @@ instance Applicative Resources where
     , rCentiGC    = rCentiGC    f (rCentiGC    x)
     , rCentiMut   = rCentiMut   f (rCentiMut   x)
     , rGcsMajor   = rGcsMajor   f (rGcsMajor   x)
-    , rGcsMinor   = rGcsMinor   f (rGcsMinor   x)
+    , rGcsSentry  = rGcsSentry  f (rGcsSentry   x)
     , rAlloc      = rAlloc      f (rAlloc      x)
     , rLive       = rLive       f (rLive       x)
     , rHeap       = rHeap       f (rHeap       x)
